@@ -1,0 +1,23 @@
+{% extends 'rango/base.html'%}
+{% block title %} Rango{% endblock%}
+
+
+{%block body_block%}
+		<h1>Edit this Category<h1>
+		
+		
+		<form id = "page_form" method = "post"  action = {% url 'edit_category'  category_name_url  %}>
+
+			{% csrf_token %}
+			<h1>{{category_url_name}}</h1>
+			({%for field in form.visible_fields %}
+				{{ field.errors }}
+				{{ field.help_text}}
+				{{ field }}
+			{%endfor%}
+			
+			<input type = "submit" name = "submit" value = "Edit Category"></input>
+			
+		</form>
+			
+{%endblock%}

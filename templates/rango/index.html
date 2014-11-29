@@ -1,0 +1,32 @@
+{% extends 'rango/base.html'%}
+{% block title %} Rango{% endblock%}
+	
+{%block body_block%}
+		{%if user.is_authenticated %}
+		<h1> Rango says.. hello {{user.username}}! </h1>
+		{%else%}
+		<h1>Rango says....Hello</h1>
+		
+		{%endif%}
+		
+		{% if categories%}
+			
+			<ul>
+				{% for category in categories %}
+					<li><a href = "/rango/category/{{category.url}}"> {{ category.name}} </a> <a href= {% url 'edit_category'  category.url  %}>Edit this Category</a></li>
+						
+					<ul>
+						{% for page in pages %}
+							<li><a href = "/rango/category/{{page.url}}"> {{ page.title}} </a></li>
+						
+						{%endfor%}
+					</ul>
+						
+				{%endfor%}
+			</ul>
+			
+		{% else %}
+			<strong>There are not categories present</strong>
+		{% endif %}
+		
+{%endblock%}

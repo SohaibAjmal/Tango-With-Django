@@ -1,0 +1,11 @@
+{% extends 'rango/base.html'%}
+{% block title %} Rango{% endblock%}
+{% load static %}	
+{%block body_block%}
+
+		<h1>About Page..<h1>
+		This is the <strong>{{aboutmessage}}</strong> <br/>
+		
+		<img src = "{% static "shrek.jpg" %}" alt = "This is Shrek" />
+
+{%endblock%}
